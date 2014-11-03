@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>rpi_examples</name>
+  <name>raspberry_pi</name>
   <version>0.0.0</version>
-  <description>The rpi_examples package</description>
+  <description>The raspberry_pi package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
