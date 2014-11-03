@@ -13,7 +13,7 @@ def gpio_start():
 	GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW)
 	GPIO.setup(23, GPIO.IN)
 
-	rospy.init_node("gpio", anonymous=False)
+	rospy.init_node("button_toggle_led", anonymous=False)
 
 	# Now setup a callback for detecting a rising edge
 	GPIO.add_event_detect(23, GPIO.RISING, callback=rising_edge_callback, bouncetime=400)
