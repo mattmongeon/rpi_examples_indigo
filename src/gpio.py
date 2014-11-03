@@ -7,13 +7,8 @@ from std_msgs.msg import String
 import RPi.GPIO as GPIO
 
 
-#try:
-#        import RPi.GPIO as GPIO
-#except RuntimeError:
-#                print{"Not Working"}
-
-
 lit = False
+
 def gpio_start():
 
 	global lit	
@@ -27,8 +22,6 @@ def gpio_start():
 	rospy.Timer(rospy.Duration(1.0), timer_callback)
 
 	# Now setup a callback for detecting a rising edge
-	#GPIO.add_event_detect(23, GPIO.RISING, callback=rising_edge_callback, bouncetime=200)
-	#rospy.spin()
 	r = rospy.Rate(50) # 50 Hz
 	while not rospy.is_shutdown():
 		
