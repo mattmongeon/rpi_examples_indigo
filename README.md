@@ -48,11 +48,14 @@ Then try to control it via the keyboard on your machine (use turtle_teleop_key),
 
 <img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/turtle.jpg" alt="alt text" style="width:300px">
 
-[GPIO](https://github.com/mattmongeon/raspberry_pi/blob/master/gpio_programming.md)
+### How to Program the Raspberry Pi Hardware
 
-[I2C](https://github.com/mattmongeon/raspberry_pi/blob/master/i2c_programming.md)
+Now that ROS Indigo has been installed on the Raspberry Pi, it is time to start making use of its features.  The following pages demonstrate how to utilize its hardware in the ROS environment.
 
-##Taking the Raspberry Pi Farther
+* The [GPIO](https://github.com/mattmongeon/raspberry_pi/blob/master/gpio_programming.md) page demonstrates how to program the GPIO pins by controlling an LED and reading a pushbutton.
+* The [I2C](https://github.com/mattmongeon/raspberry_pi/blob/master/i2c_programming.md) page demonstrates how to read and write over I2C using an accelerometer.  It also demonstrates how to display the Raspberry Pi in rviz as it uses the acceleration data to show its position.
+
+###Taking the Raspberry Pi Farther
 
 The capabilities of the Raspberry Pi go further still than what is outlined in this document.  The following pages provide some information on looking into the possibilities:
 
