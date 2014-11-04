@@ -3,7 +3,6 @@
 import rospy
 import roslib
 import sys
-from std_msgs.msg import String
 import RPi.GPIO as GPIO
 
 
@@ -17,11 +16,13 @@ def run():
 	rospy.init_node("led_blink", anonymous=False)
 	rospy.Timer(rospy.Duration(1.0), timer_callback)
         rospy.spin()
+	GPIO.cleanup()
 	
 	
 def timer_callback(event):
 	global lit
 
+        # Toggle the light state.
 	lit = not lit
 	if lit:
 		GPIO.output(18, 1)

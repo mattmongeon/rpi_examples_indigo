@@ -3,11 +3,10 @@
 import rospy
 import roslib
 import sys
-from std_msgs.msg import String
 import RPi.GPIO as GPIO
 
 lit = False
-def gpio_start():
+def run():
 
 	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW)
@@ -33,7 +32,7 @@ def rising_edge_callback(channel):
 	
 
 def main(args):
-	gpio_start()
+	run()
 
 
 if __name__ == "__main__":
