@@ -411,3 +411,5 @@ The capabilities of the Raspberry Pi go further still than what is outlined in t
 
 * SPI - [Intro](http://www.100randomtasks.com/simple-spi-on-raspberry-pi) and [Documentation](http://tightdev.net/SpiDev_Doc.pdf)
 * [PWM and TCP interrupts and more](http://pythonhosted.org/RPIO/)
+
+[test](https://github.com/mattmongeon/raspberry_pi/blob/master/installing_ros.md)
