@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+	<node name="pi_position" pkg="raspberry_pi" type="pi_position.py">
+	      <param name="_x_offset" value="-0.641"/>
+	      <param name="_y_offset" value="0.14"/>
+	      <param name="_z_offset" value="9.74"/>
+	      <param name="_print_debug" value="False"/>
+	</node>
+
+	<include file="$(find urdf_tutorial)/launch/display.launch">
+		 <arg name="model" value="accels.urdf"/>
+	</include>
+</launch>
