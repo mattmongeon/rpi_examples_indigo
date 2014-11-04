@@ -6,7 +6,6 @@ import sys
 import time
 import math
 from sensor_msgs.msg import Imu
-from sensor_msgs.msg import Temperature
 
 # Portions of code borrowed from http://forums.adafruit.com/viewtopic.php?f=19&t=37342
 
@@ -46,7 +45,6 @@ MAG_REG_TEMP_OUT_L_M = 0x32
 bus = smbus.SMBus(1)
 
 imu_pub = rospy.Publisher("lin_accel", Imu, queue_size=10)
-temp_pub = rospy.Publisher("temperature_degf", Temperature, queue_size=10)
 
 def write_accel_reg(register, value):
 	global bus
@@ -114,17 +112,6 @@ def get_compass_heading():
 
 	return x_total, y_total, z_total
 
-def get_temperature_degf():
-	lo = read_mag_reg(MAG_REG_TEMP_OUT_L_M)
-	lo = lo >> 4
-	hi = read_mag_reg(MAG_REG_TEMP_OUT_H_M)
-	total = (hi << 4) + lo
-	total = convert_twos_complement(total)
-	total /= 8
-	
-	return total
-	
-
 print_debug = False
 
 def run():
@@ -143,7 +130,7 @@ def run():
 
 	print_debug = rospy.get_param("~print_debug", False)
 
-	rospy.Timer(rospy.Duration(0.1), timer_callback)
+	rospy.Timer(rospy.Duration(0.05), timer_callback)
 
 	rospy.spin()
 
@@ -157,8 +144,6 @@ def timer_callback(event):
 
 	x_mag, y_mag, z_mag = get_compass_heading()
 
-	temp_deg_f = get_temperature_degf()
-
 	imu_msg = Imu()
 	imu_msg.header.stamp = rospy.Time.now()
 	imu_msg.linear_acceleration.x = x_accel
@@ -167,13 +152,6 @@ def timer_callback(event):
 
 	imu_pub.publish(imu_msg)
 
-	temp_msg = Temperature()
-	temp_msg.header.stamp = rospy.Time.now()
-	temp_msg.temperature = float(temp_deg_f)
-	temp_msg.variance = 0
-
-	temp_pub.publish(temp_msg)
-
 	if print_debug:
 		s = "X Accel = " + str(x_accel) + "\r\n"
 		s += "Y Accel = " + str(y_accel) + "\r\n"
@@ -181,7 +159,6 @@ def timer_callback(event):
 		s += "X Mag = " + str(x_mag) + "\r\n"
 		s += "Y Mag = " + str(y_mag) + "\r\n"
 		s += "Z Mag = " + str(z_mag) + "\r\n"
-		s += "Temp = " + str(temp_deg_f) + "\r\n"
 		print s
 
 
