@@ -6,6 +6,15 @@ This document explains the steps necessary for installing ROS Indigo on the Rasp
 
 The code associated with this document is intended as a launch point and a means of demonstrating how to work with the GPIO on the Raspberry Pi. It is by no means meant to be a complete solution, nor is it guaranteed to be bug free.  Rather it is intended to demonstrate concepts so that it can be expanded to other specific applications.  Each of the code files is written in Python.
 
+For this project we have devices including a [Raspberry Pi B+ board](http://www.raspberrypi.org/products/model-b-plus/), a keyboard, a mouse, a HDMI monitor, a LSM303DLHC Ultra-compact high-performance eCompass module: 3D accelerometer and 3D magnetometer [datasheet](http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00027543.pdf) a Raspberry Pi B+ GPIO Breakout Board, and some LEDs, bush buttons, resistors and wire.
+
+The Raspberry Pi B+ board has a SD card slot. With a 8G SD card installed with [Raspbian OS](http://raspbian.org/) and HDMI cable connected with HDMI monitor, you could set up a micro-computer. The Raspberry will start as long as the power is pluged in.
+
+Hint: 
+1. When using the terminal in Raspbian OS, some command lines are different with ubuntu 14.04 and the process duration is significantly longer than on intel Core i5 processor, please be more patient.
+2. [Screenshots On The Raspbian OS](http://www.raspberrypi-spy.co.uk/2013/10/how-to-take-screenshots-on-the-raspberry-pi/).
+
+
 ## Installing ROS Indigo
 
 To install ROS Indigo, visit this [link](http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Indigo%20on%20Raspberry%20Pi).  It will guide the installation process step by step.
@@ -16,9 +25,28 @@ There are a few items of note regarding these instructions.  First of all, bewar
 
 ### Running turtlesim for the First Time
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/turtle.jpg" alt="alt text" style="width:300px">
+When finish the installation of ROS indigo on the Raspberry Pi board, first try to creat a new workspace just like on our computer [Creat a ROS Workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment). Then you could try our cute turtlesim node as a test whether our ROS is installed successfully or not [turtlesim](http://wiki.ros.org/turtlesim).
 
-### Controlling turtlesim Over SSH
+Hint: Here you might encounter some error like "turtlesim_node could not be found". First of all, you should check your ROS environment variables. If the ROS environment is working appropriately, that means your turtlesim package is not installed appropriately. You should try to clone the package [ros tutrial](https://github.com/ros/ros_tutorials) to your workspace.
+
+### Controlling turtlesim Over Network
+
+Then we could try to use turtle_teleop_key to control the motion of the turtle.
+
+Hint: The Raspberry Pi B+ board have 4 USB port could be used with periphal devices like keyboard, usb-key, mouse, web camera and so on. All the devices listed above requires no drivers, they will automatically work with just plug-in.
+
+Furthermore, you could try to control the turtle through the Network with Raspberry Pi. First of all, establish a local network (a router) and connect the Raspberry Pi and your computer with it. First of all, in order to resolve the name of the Raspberry Pi and our own computer, we should install avhi-daemon on Raspberry Pi:
+
+    sudo apt-get install avahi-daemon
+
+Then follow the tutorial of running ROS over a Network, export the Master URI and Hostname on both Raspberry Pi terminal and your own computer:
+
+    $ export ROS_HOSTNAME=localhost
+    $ export ROS_MASTER_URI=http://localhost:11311
+
+Then try to control it via the keyboard on your machine (use turtle_teleop_key), you could get the turtle running like following:
+
+<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/turtle.jpg" alt="alt text" style="width:300px">
 
 ## GPIO Programming
 
