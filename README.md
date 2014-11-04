@@ -62,7 +62,7 @@ The following example will demonstrate how to make an LED blink at a periodic ra
 
 The schematic below shows the wiring used for this particular example.
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/blink_led.png" alt="alt text" style="width:400px">
+<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/blink_led.png" alt="alt text" style="width:300px">
 
 ####2. Writing the Code
 
@@ -112,7 +112,7 @@ This example demonstrates how to take in a button press and use it to toggle the
 
 The schematic below shows the wiring used for this particular example.
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/toggle_led.png" alt="alt text" style="width:400px">
+<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/toggle_led.png" alt="alt text" style="width:300px">
 
 ####2. Writing the Code
 
@@ -192,7 +192,7 @@ the ````i2cdetect```` tool should be run with
 
 The following diagram shows the schematic used for this example
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/lsm303.png" alt="alt text" style="width:500px">
+<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/lsm303.png" alt="alt text" style="width:300px">
 
 ####2. Writing the Code
 
