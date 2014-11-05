@@ -146,7 +146,18 @@ Now that the acceleration values are available they can start being used in ROS.
         imu_msg.linear_acceleration.z = z_accel
         imu_pub.publish(imu_msg)
 
-#####2.8 Publishing the tf Data
+#####2.8 Plot the acceleration data
+
+Now use rqt_plot to plot the message of the acceleration data we could get the following
+
+<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/3.jpg" alt="alt text" style="width:200px">
+
+<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/2.jpg" alt="alt text" style="width:200px">
+
+
+
+
+#####2.9 Publishing the tf Data
 
 Now that the acceleration data is being published it can be viewed in rviz on another machine.  This can be done by subscribing to the ```/lin_accel``` topic, updating the velocity and position of the Raspberry Pi, and publishing new tf data.  The source code for this example can be found in [pi_position.py](https://github.com/mattmongeon/raspberry_pi/blob/master/src/pi_position.py).  Information on tf can be found in [this documentation](http://wiki.ros.org/tf) and [these tutorials](http://wiki.ros.org/tf/Tutorials).
 
@@ -181,11 +192,11 @@ The call to ```sendTransform()``` will transmit the tf data to be used by the re
 
 As an additional note, the full code contains offsets that can be applied to the x-, y-, and z-acceleration values to try to get them closer to 0.0 when at rest.  These values naively assume that the accelerometer never rotates or changes orientation.  If this happens, gravity causes the values to shift, which will mess up all of the calculations.  Compensating for gravity requires knowing the orientation (roll, pitch, yaw) of the accelerometer, which is not available in this code.
 
-#####2.9 Preparing to View in rviz
+#####2.10 Preparing to View in rviz
 
 The data is waiting to be viewed in rviz.  Before doing that, the network needs to be setup.  Make sure the Raspberry Pi and remote machine have their network settings set as mentioned above in this documentation so that the remote machine can received acceleration data from the Raspberry Pi.
 
-#####2.10 Viewing it in rviz
+#####2.11 Viewing it in rviz
 
 Now that the tf data is being published, the movement of the Raspberry Pi can be viewed in rviz once a URDF file has been created.  For the purposes of this example a simple URDF will suffice, such as the one shown in the following snippet (this snippet shows the contents of [accels.urdf](https://github.com/mattmongeon/raspberry_pi/blob/master/accels.urdf)).
 
