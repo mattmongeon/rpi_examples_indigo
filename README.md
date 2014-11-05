@@ -65,6 +65,10 @@ Now that ROS Indigo has been installed on the Raspberry Pi, it is time to start 
 * The [GPIO](https://github.com/mattmongeon/raspberry_pi/blob/master/gpio_programming.md) page demonstrates how to program the GPIO pins by controlling an LED and reading a pushbutton.
 * The [I2C](https://github.com/mattmongeon/raspberry_pi/blob/master/i2c_programming.md) page demonstrates how to read and write over I2C using an accelerometer.  It also demonstrates how to display the Raspberry Pi in rviz as it uses the acceleration data to show its position.
 
+Our circuit picture
+
+<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/circuit.jpg" alt="alt text" style="width:200px">
+
 ###Taking the Raspberry Pi Farther
 
 The capabilities of the Raspberry Pi go further still than what is outlined in this document.  The following pages provide some information on looking into the possibilities:
