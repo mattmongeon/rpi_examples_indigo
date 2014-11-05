@@ -193,7 +193,7 @@ As an additional note, the full code contains offsets that can be applied to the
 
 #####2.9 Plot the acceleration data
 
-Now use rqt_plot to plot the message of the acceleration data we could get the following
+Now use rqt_plot to plot the message of the acceleration data.  We could get something similar to the following
 
 <img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/3.jpg" alt="alt text" style="width:200px">
 
