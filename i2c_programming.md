@@ -254,6 +254,6 @@ To launch everything run the command
 
 and move the Raspberry Pi around to see it move in rviz.  The following image demonstrates how it might look.
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/rviz.png" alt="alt text" style="width:200px">
+<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/rivz.png" alt="alt text" style="width:200px">
 
 Notice in the left-hand column of the image that the Fixed Frame entry is set to base_link.  This means the base_link will be the fixed point while the world frame moves relative to it.  To see the box move instead, change base_link to say world.
