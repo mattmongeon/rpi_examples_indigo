@@ -122,8 +122,3 @@ Now that the code is initializing the pins and watching for a rising edge from t
             GPIO.output(18, 1)
         else:
             GPIO.output(18, 0)
-
-####3. Circuit picture
-
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/circuit.jpg" alt="alt text" style="width:200px">
-
