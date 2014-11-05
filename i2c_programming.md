@@ -21,7 +21,7 @@ The following diagram shows the schematic used for this example
 
 ####2. Writing the Code
 
-Now to the fun part of writing code.  The code provided is written in Python and works with a [LSM303DLHC 3D compass and accelerometer](http://www.st.com/web/catalog/sense_power/FM89/SC1449/PF251940).  The code utilizing it is by no means meant to be a complete solution for this device.  It simply provides an example to demonstrate how to program the I2C interface.  It will only be making full use of the accelerometer capabilities.  The magnetometer can be utilized in a similar fashion.  The file [lsm303.py](https://github.com/mattmongeon/raspberry_pi/blob/master/src/lsm303.py) contains the complete source code for this example.
+Now to the fun part of writing code.  The code provided is written in Python and works with a [LSM303DLHC 3D compass and accelerometer](http://www.st.com/web/catalog/sense_power/FM89/SC1449/PF251940).  The code utilizing it is by no means meant to be a complete solution for this device.  It simply provides an example to demonstrate how to program the I2C interface.  It will only be making full use of the accelerometer capabilities.  The magnetometer can be utilized in a similar fashion.  The file [lsm303.py](https://github.com/mattmongeon/raspberry_pi/blob/master/src/lsm303.py) contains the complete source code for this example.  It contains some code for the magnetometer, but it doesn't really do anything useful with it.  It is there just to provide a bit of a starting point.
 
 #####2.1 Importing smbus
 

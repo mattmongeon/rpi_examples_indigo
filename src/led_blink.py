@@ -5,15 +5,20 @@ import roslib
 import sys
 import RPi.GPIO as GPIO
 
-
+# Initialize the LED to not be lit.
 lit = False
 
 def run():
 
+        # Initialize to use BCM numbering.
 	GPIO.setmode(GPIO.BCM)
-	GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW)
+
+        # We want pin 18 to be an output pin, and it should start out with a low value.
+	GPIO.setup(24, GPIO.OUT, initial=GPIO.LOW)
 
 	rospy.init_node("led_blink", anonymous=False)
+
+        # Set up a timer to toggle the LED state once per second.
 	rospy.Timer(rospy.Duration(1.0), timer_callback)
         rospy.spin()
 	GPIO.cleanup()
@@ -22,12 +27,12 @@ def run():
 def timer_callback(event):
 	global lit
 
-        # Toggle the light state.
+        # Toggle the LED state.
 	lit = not lit
 	if lit:
-		GPIO.output(18, 1)
+		GPIO.output(24, 1)
 	else:
-		GPIO.output(18, 0)
+		GPIO.output(24, 0)
 
 
 def main(args):
