@@ -22,7 +22,7 @@ The first thing to do is to initialize the GPIO.  The following code snippet sho
     
     def run():
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.setup(24, GPIO.OUT, initial=GPIO.LOW)
 
 The call to ```GPIO.setmode()``` tells the Raspberry Pi how the pins are going to be referenced.  It will either be set to ```GPIO.BCM``` (for BCM numbering) or ```GPIO.BOARD``` (for Board numbering).  The ```GPIO.setup()``` function initializes a numbered pin as either input (```GPIO.IN```) or output (```GPIO.OUT```).  It also provides allows an initial value for output pins to be set to either ```GPIO.LOW``` or ```GPIO.HIGH```.
 
@@ -35,7 +35,7 @@ After the pin has been initialized it is ready to be used.  The following code s
     
     def run():
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(18, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.setup(23, GPIO.OUT, initial=GPIO.LOW)
 
         rospy.init_node("led_blink", anonymous=False)
         rospy.Timer(rospy.Duration(1.0), timer_callback)
@@ -48,11 +48,33 @@ After the pin has been initialized it is ready to be used.  The following code s
         # Toggle the light state.
         lit = not lit
         if lit:
-            GPIO.output(18, 1)
+            GPIO.output(24, 1)
         else:
-            GPIO.output(18, 0)
+            GPIO.output(24, 0)
 
 The ```rospy.Timer``` object is set to fire the ```timer_callback``` once per second.  In this function the on/off state of the LED is toggled, which is accomplished with ```GPIO.output()```.  This function takes in a pin number and a ```1``` or ```0``` to indicate whether the pin is powered or not.  The ```GPIO.cleanup()``` releases the setup for the pins.
+
+####3. Running the Node
+
+Now that the code is ready, make sure the command
+
+    $ source devel/setup.bash
+
+has been run from inside the root of the workspace directory.  Then run
+
+    $ rosrun raspberry_pi led_blink.py
+
+and watch the LED blink.
+
+Note that an error may be thrown saying
+
+    RuntimeError: No access to /dev/mem.  Try running as root!
+
+If this occurs, simply run the command
+
+    $ sudo su
+
+to become root and trying using ```rosrun``` again.
 
 ###Toggling an LED
 
@@ -122,3 +144,25 @@ Now that the code is initializing the pins and watching for a rising edge from t
             GPIO.output(18, 1)
         else:
             GPIO.output(18, 0)
+
+####3. Running the Node
+
+Now that the code is ready, make sure the command
+
+    $ source devel/setup.bash
+
+has been run from inside the root of the workspace directory.  Also make sure roscore is running in another terminal.  Then run
+
+    $ rosrun raspberry_pi button_toggle_led.py
+
+and use the pushbutton to make the LED toggle.
+
+Note that an error may be thrown saying
+
+    RuntimeError: No access to /dev/mem.  Try running as root!
+
+If this occurs, simply run the command
+
+    $ sudo su
+
+to become root and trying using ```rosrun``` again.
