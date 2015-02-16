@@ -56,18 +56,18 @@ This should be run on each terminal that is running roscore or using rosrun or r
 
 Once the networking has been setup, try to control the turtle via the keyboard on your machine (use turtle_teleop_key).  You could get the turtle running like following:
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/turtle.jpg" alt="alt text" style="width:300px">
+<img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/turtle.jpg" alt="alt text" style="width:300px">
 
 ### How to Program the Raspberry Pi Hardware
 
 Now that ROS Indigo has been installed on the Raspberry Pi, it is time to start making use of its features.  The following pages demonstrate how to utilize its hardware in the ROS environment.
 
-* The [GPIO](https://github.com/mattmongeon/raspberry_pi/blob/master/gpio_programming.md) page demonstrates how to program the GPIO pins by controlling an LED and reading a pushbutton.
-* The [I2C](https://github.com/mattmongeon/raspberry_pi/blob/master/i2c_programming.md) page demonstrates how to read and write over I2C using an accelerometer.  It also demonstrates how to display the Raspberry Pi in rviz as it uses the acceleration data to show its position.
+* The [GPIO](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/gpio_programming.md) page demonstrates how to program the GPIO pins by controlling an LED and reading a pushbutton.
+* The [I2C](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/i2c_programming.md) page demonstrates how to read and write over I2C using an accelerometer.  It also demonstrates how to display the Raspberry Pi in rviz as it uses the acceleration data to show its position.
 
 Our circuit picture
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/circuit.jpg" alt="alt text" style="width:200px">
+<img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/circuit.jpg" alt="alt text" style="width:200px">
 
 ###Taking the Raspberry Pi Farther
 

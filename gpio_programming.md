@@ -6,13 +6,13 @@ The Raspberry Pi has 40 GPIO pins that provide numerous capabilities, including 
 
 ### Blinking an LED
 
-The following example will demonstrate how to make an LED blink at a periodic rate.  The file [led_blink.py](https://github.com/mattmongeon/raspberry_pi/blob/master/src/led_blink.py) contains the source code.
+The following example will demonstrate how to make an LED blink at a periodic rate.  The file [led_blink.py](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/src/led_blink.py) contains the source code.
 
 ####1. Wiring It Up
 
 The schematic below shows the wiring used for this particular example.
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/blink_led.png" alt="alt text" style="width:200px">
+<img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/blink_led.png" alt="alt text" style="width:200px">
 
 ####2. Writing the Code
 
@@ -62,7 +62,7 @@ Now that the code is ready, make sure the command
 
 has been run from inside the root of the workspace directory.  Then run
 
-    $ rosrun raspberry_pi led_blink.py
+    $ rosrun rpi_examples_indigo led_blink.py
 
 and watch the LED blink.
 
@@ -78,13 +78,13 @@ to become root and trying using ```rosrun``` again.
 
 ###Toggling an LED
 
-This example demonstrates how to take in a button press and use it to toggle the state of an LED.  The full source code can be found in [button_toggle_led.py](https://github.com/mattmongeon/raspberry_pi/blob/master/src/button_toggle_led.py).
+This example demonstrates how to take in a button press and use it to toggle the state of an LED.  The full source code can be found in [button_toggle_led.py](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/src/button_toggle_led.py).
 
 ####1. Wiring It Up
 
 The schematic below shows the wiring used for this particular example.
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/toggle_led.png" alt="alt text" style="width:200px">
+<img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/toggle_led.png" alt="alt text" style="width:200px">
 
 ####2. Writing the Code
 
@@ -153,7 +153,7 @@ Now that the code is ready, make sure the command
 
 has been run from inside the root of the workspace directory.  Also make sure roscore is running in another terminal.  Then run
 
-    $ rosrun raspberry_pi button_toggle_led.py
+    $ rosrun rpi_examples_indigo button_toggle_led.py
 
 and use the pushbutton to make the LED toggle.
 

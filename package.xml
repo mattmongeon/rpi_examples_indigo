@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>raspberry_pi</name>
+  <name>rpi_examples_indigo</name>
   <version>0.0.0</version>
-  <description>The raspberry_pi package</description>
+  <description>A package containing examples of programming the Raspberry Pi with ROS Indigo.</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->

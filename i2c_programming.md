@@ -17,11 +17,11 @@ the ````i2cdetect```` tool should be run with
 
 The following diagram shows the schematic used for this example
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/lsm303.png" alt="alt text" style="width:200px">
+<img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/lsm303.png" alt="alt text" style="width:200px">
 
 ####2. Writing the Code
 
-Now to the fun part of writing code.  The code provided is written in Python and works with a [LSM303DLHC 3D compass and accelerometer](http://www.st.com/web/catalog/sense_power/FM89/SC1449/PF251940).  The code utilizing it is by no means meant to be a complete solution for this device.  It simply provides an example to demonstrate how to program the I2C interface.  It will only be making full use of the accelerometer capabilities.  The magnetometer can be utilized in a similar fashion.  The file [lsm303.py](https://github.com/mattmongeon/raspberry_pi/blob/master/src/lsm303.py) contains the complete source code for this example.  It contains some code for the magnetometer, but it doesn't really do anything useful with it.  It is there just to provide a bit of a starting point.
+Now to the fun part of writing code.  The code provided is written in Python and works with a [LSM303DLHC 3D compass and accelerometer](http://www.st.com/web/catalog/sense_power/FM89/SC1449/PF251940).  The code utilizing it is by no means meant to be a complete solution for this device.  It simply provides an example to demonstrate how to program the I2C interface.  It will only be making full use of the accelerometer capabilities.  The magnetometer can be utilized in a similar fashion.  The file [lsm303.py](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/src/lsm303.py) contains the complete source code for this example.  It contains some code for the magnetometer, but it doesn't really do anything useful with it.  It is there just to provide a bit of a starting point.
 
 #####2.1 Importing smbus
 
@@ -152,13 +152,13 @@ Now that the code is ready, the node can be run in order to publish data.  Make 
 
 has been run from the root of the current workspace.  Then run the command
 
-    $ rosrun raspberry_pi lsm303.py
+    $ rosrun rpi_examples_indigo lsm303.py
 
 to start publishing acceleration data.
 
 #####2.8 Publishing the tf Data
 
-Now that the acceleration data is being published it can be viewed in rviz on another machine.  This can be done by subscribing to the ```/lin_accel``` topic, updating the velocity and position of the Raspberry Pi, and publishing new tf data.  The source code for this example can be found in [pi_position.py](https://github.com/mattmongeon/raspberry_pi/blob/master/src/pi_position.py).  Information on tf can be found in [this documentation](http://wiki.ros.org/tf) and [these tutorials](http://wiki.ros.org/tf/Tutorials).
+Now that the acceleration data is being published it can be viewed in rviz on another machine.  This can be done by subscribing to the ```/lin_accel``` topic, updating the velocity and position of the Raspberry Pi, and publishing new tf data.  The source code for this example can be found in [pi_position.py](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/src/pi_position.py).  Information on tf can be found in [this documentation](http://wiki.ros.org/tf) and [these tutorials](http://wiki.ros.org/tf/Tutorials).
 
 First a subscriber needs to be created.
 
@@ -195,9 +195,9 @@ As an additional note, the full code contains offsets that can be applied to the
 
 Now use rqt_plot to plot the message of the acceleration data.  We could get something similar to the following
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/3.jpg" alt="alt text" style="width:200px">
+<img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/3.jpg" alt="alt text" style="width:200px">
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/2.jpg" alt="alt text" style="width:200px">
+<img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/2.jpg" alt="alt text" style="width:200px">
 
 This will need to be done on a remote machine.  Before attempting to do so, ensure the network between the Raspberry Pi and a remote machine has been setup according to the instructions on the home page of this documentation.  Once the everything is setup, run
 
@@ -211,7 +211,7 @@ The data is waiting to be viewed in rviz.  Before doing that, the network needs 
 
 #####2.11 Viewing it in rviz
 
-Now that the tf data is being published, the movement of the Raspberry Pi can be viewed in rviz once a URDF file has been created.  For the purposes of this example a simple URDF will suffice, such as the one shown in the following snippet (this snippet shows the contents of [accels.urdf](https://github.com/mattmongeon/raspberry_pi/blob/master/accels.urdf)).
+Now that the tf data is being published, the movement of the Raspberry Pi can be viewed in rviz once a URDF file has been created.  For the purposes of this example a simple URDF will suffice, such as the one shown in the following snippet (this snippet shows the contents of [accels.urdf](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/accels.urdf)).
 
     <?xml version="1.0"?>
     <robot name="pi_accels">
@@ -226,11 +226,11 @@ Now that the tf data is being published, the movement of the Raspberry Pi can be
 
 This file defines a single box link, which is sufficient for showing the Raspberry Pi's position in space.  For more information regarding URDF files see [these tutorials](http://wiki.ros.org/urdf/Tutorials) and [this information](http://wiki.ros.org/urdf/XML) on the XML tags.
 
-Now it is time to launch the node as well as rviz to view the URDF file.  To help with loading the URDF file and launching rviz, the file [pi_in_rviz.launch](https://github.com/mattmongeon/raspberry_pi/blob/master/launch/pi_in_rviz.launch) has been created.  It launches the pi_position.py file and also launches the display.launch file from the urdf_tutorial.  This code snippet displays the contents of pi_in_rviz.launch
+Now it is time to launch the node as well as rviz to view the URDF file.  To help with loading the URDF file and launching rviz, the file [pi_in_rviz.launch](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/launch/pi_in_rviz.launch) has been created.  It launches the pi_position.py file and also launches the display.launch file from the urdf_tutorial.  This code snippet displays the contents of pi_in_rviz.launch
 
     <?xml version="1.0"?>
     <launch>
-      <node name="pi_position" pkg="raspberry_pi" type="pi_position.py">
+      <node name="pi_position" pkg="rpi_examples_indigo" type="pi_position.py">
           <param name="_x_offset" value="-0.641"/>
           <param name="_y_offset" value="0.14"/>
           <param name="_z_offset" value="9.74"/>
@@ -250,10 +250,10 @@ Notice that there are several offset parameters with values set.  These correspo
 
 To launch everything run the command
 
-    roslaunch raspberry_pi pi_in_rviz.launch
+    roslaunch rpi_examples_indigo pi_in_rviz.launch
 
 and move the Raspberry Pi around to see it move in rviz.  The following image demonstrates how it might look.
 
-<img src="https://raw.githubusercontent.com/mattmongeon/raspberry_pi/master/image/rivz.png" alt="alt text" style="width:200px">
+<img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/rivz.png" alt="alt text" style="width:200px">
 
 Notice in the left-hand column of the image that the Fixed Frame entry is set to base_link.  This means the base_link will be the fixed point while the world frame moves relative to it.  To see the box move instead, change base_link to say world.
