@@ -24,7 +24,7 @@ There are a few items of note regarding these instructions.  First of all, bewar
 
 ### Running turtlesim for the First Time
 
-When ROS Indigo installation has completed, create a new workspace following the instructions on the [Create a ROS Workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) page. Then use the cute turtlesim node as a test whether ROS was installed successfully or not [turtlesim](http://wiki.ros.org/turtlesim).
+When the ROS Indigo installation has completed, create a new workspace following the instructions on the [Create a ROS Workspace](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment) page. Then use the turtlesim node to test whether ROS was installed successfully or not.  Follow the [turtlesim](http://wiki.ros.org/turtlesim) link to run the node.
 
 Here you might encounter some error like "turtlesim_node could not be found".  First of all, you should check your ROS environment variables.  Run the command
 
@@ -63,9 +63,9 @@ Once the networking has been setup, try to control the turtle via the keyboard o
 Now that ROS Indigo has been installed on the Raspberry Pi, it is time to start making use of its features.  The following pages demonstrate how to utilize its hardware in the ROS environment.
 
 * The [GPIO](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/gpio_programming.md) page demonstrates how to program the GPIO pins by controlling an LED and reading a pushbutton.
-* The [I2C](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/i2c_programming.md) page demonstrates how to read and write over I2C using an accelerometer.  It also demonstrates how to display the Raspberry Pi in rviz as it uses the acceleration data to show its position.
+* The [I2C](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/i2c_programming.md) page demonstrates how to read and write over I2C by interfacing with an accelerometer.  It also demonstrates how to display the Raspberry Pi in rviz as it uses the acceleration data to show its position.
 
-Our circuit picture
+Our circuit picture (don't worry, the pages contain schematics):
 
 <img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/circuit.jpg" alt="alt text" style="width:200px">
 

@@ -21,7 +21,7 @@ The following diagram shows the schematic used for this example
 
 ####2. Writing the Code
 
-Now to the fun part of writing code.  The code provided is written in Python and works with a [LSM303DLHC 3D compass and accelerometer](http://www.st.com/web/catalog/sense_power/FM89/SC1449/PF251940).  The code utilizing it is by no means meant to be a complete solution for this device.  It simply provides an example to demonstrate how to program the I2C interface.  It will only be making full use of the accelerometer capabilities.  The magnetometer can be utilized in a similar fashion.  The file [lsm303.py](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/src/lsm303.py) contains the complete source code for this example.  It contains some code for the magnetometer, but it doesn't really do anything useful with it.  It is there just to provide a bit of a starting point.
+The code provided is written in Python and works with a [LSM303DLHC 3D compass and accelerometer](http://www.st.com/web/catalog/sense_power/FM89/SC1449/PF251940).  The code utilizing it is by no means meant to be a complete solution for this device.  It simply provides an example to demonstrate how to program the I2C interface.  It will only be making use of the accelerometer capabilities.  The magnetometer can be utilized in a similar fashion.  The file [lsm303.py](https://github.com/mattmongeon/rpi_examples_indigo/blob/master/src/lsm303.py) contains the complete source code for this example.  It contains some code for the magnetometer, but it doesn't really do anything useful with it.  It is there just to provide a bit of a starting point.
 
 #####2.1 Importing smbus
 
@@ -43,7 +43,7 @@ For this example we will be using only two functions from the SMBus class:  ```w
 
 where ```addr``` is the address of the I2C component, ```cmd``` is the command to be run or the register to write to, and ```val``` is the value to be written.  The function signature for ```read_byte_data()``` is
 
-   read_byte_data(addr, cmd)
+    read_byte_data(addr, cmd)
 
 where ```addr``` is the address of the I2C component and ```cmd``` is the command to be run or the register to be read.
 
@@ -256,4 +256,4 @@ and move the Raspberry Pi around to see it move in rviz.  The following image de
 
 <img src="https://raw.githubusercontent.com/mattmongeon/rpi_examples_indigo/master/image/rivz.png" alt="alt text" style="width:200px">
 
-Notice in the left-hand column of the image that the Fixed Frame entry is set to base_link.  This means the base_link will be the fixed point while the world frame moves relative to it.  To see the box move instead, change base_link to say world.
+Notice in the left-hand column of the image that the Fixed Frame entry is set to base_link.  This means the base_link will be the fixed point while the world frame moves relative to it.  To see the box move instead, change Fixed Frame to world.

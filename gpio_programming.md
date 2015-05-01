@@ -24,7 +24,7 @@ The first thing to do is to initialize the GPIO.  The following code snippet sho
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(24, GPIO.OUT, initial=GPIO.LOW)
 
-The call to ```GPIO.setmode()``` tells the Raspberry Pi how the pins are going to be referenced.  It will either be set to ```GPIO.BCM``` (for BCM numbering) or ```GPIO.BOARD``` (for Board numbering).  The ```GPIO.setup()``` function initializes a numbered pin as either input (```GPIO.IN```) or output (```GPIO.OUT```).  It also provides allows an initial value for output pins to be set to either ```GPIO.LOW``` or ```GPIO.HIGH```.
+The call to ```GPIO.setmode()``` tells the Raspberry Pi how the pins are going to be referenced.  It will either be set to ```GPIO.BCM``` (for BCM numbering) or ```GPIO.BOARD``` (for Board numbering).  The ```GPIO.setup()``` function initializes a numbered pin as either input (```GPIO.IN```) or output (```GPIO.OUT```).  It also allows an initial value for output pins to be set to either ```GPIO.LOW``` or ```GPIO.HIGH```.
 
 After the pin has been initialized it is ready to be used.  The following code snippet expands on the previous one and demonstrates how this is done.
 
@@ -117,7 +117,7 @@ specifies a callback function that will be fired when a rising edge occurs.  The
 
 provides some debouncing time to the entry to eliminate a flood of rising edge triggers.
 
-Now that the code is initializing the pins and watching for a rising edge from the button it is time to make use of it.  The following code snippt it puts it all together.
+Now that the code is initializing the pins and watching for a rising edge from the button it is time to make use of it.  The following code snippet it puts it all together.
 
     import rospy
     import RPi.GPIO as GPIO
